@@ -94,16 +94,16 @@ function Nav() {
     >
       <div className="container-lux flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-full gold-border">
-            <Crown className="h-4 w-4 text-primary" />
+          <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5 shadow-sm">
+            <img src={dlfLogo.url} alt="DLF" className="h-6 w-auto" />
           </div>
-          <div className="leading-tight">
-            <div className="font-display text-lg tracking-wide">DLF</div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Hamilton Court 2</div>
+          <div className="leading-tight hidden sm:block">
+            <div className="font-display text-base tracking-wide">Hamilton Court 2</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Gurugram</div>
           </div>
         </a>
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV.map((n) => (
+        <nav className="hidden lg:flex items-center gap-8">
+          {HEADER_NAV.map((n) => (
             <a key={n.href} href={n.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
               {n.label}
             </a>
@@ -125,7 +125,7 @@ function Nav() {
       {open && (
         <div className="lg:hidden glass-dark border-t border-border">
           <div className="container-lux py-4 flex flex-col gap-3">
-            {NAV.map((n) => (
+            {HEADER_NAV.map((n) => (
               <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-2 text-sm text-muted-foreground hover:text-primary">
                 {n.label}
               </a>
