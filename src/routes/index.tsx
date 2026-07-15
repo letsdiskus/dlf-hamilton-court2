@@ -167,11 +167,11 @@ function Hero() {
             </div>
             <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl">
               A Rare Address, <br />
-              <span className="gold-text italic">Reimagined.</span>
+              <span className="gold-text italic">Reimagined</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground">
               DLF Hamilton Court 2 -an ultra-luxury enclave of 4.5 BHK residences and sky-penthouses,
-              set across 12.5 acres in the heart of Gurugram.
+              set across 12.5 acres in the heart of Gurugram
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 px-7 shadow-[var(--shadow-gold)]">
@@ -233,7 +233,7 @@ function Overview() {
             </p>
             <p className="mt-5 leading-relaxed text-muted-foreground">
               Six to seven sculpted towers rise from twelve and a half acres of landscaped gardens, water bodies
-              and low-density living -an address that speaks softly, yet unmistakably.
+              and low-density living -an address that speaks softly, yet unmistakably
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
@@ -332,9 +332,9 @@ function MasterPlan() {
             <div className="absolute inset-0 grid place-items-center text-center px-6">
               <div>
                 <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Preview</div>
-                <div className="mt-3 font-display text-3xl md:text-5xl">Detailed master plan on request.</div>
+                <div className="mt-3 font-display text-3xl md:text-5xl">Detailed master plan on request</div>
                 <p className="mt-4 max-w-xl mx-auto text-sm text-muted-foreground">
-                  Share your details to receive the confidential master plan and site walkthrough.
+                  Share your details to receive the confidential master plan and site walkthrough
                 </p>
                 <Button asChild className="mt-6 rounded-full bg-primary text-primary-foreground"><a href="#enquire">Request Master Plan</a></Button>
               </div>
@@ -442,7 +442,7 @@ function Pricing() {
         </div>
         <p className="mt-6 text-xs text-muted-foreground text-center max-w-2xl mx-auto">
           * Indicative price for a ≈ 5,500 sq ft apartment at approximately ₹50,000 per sq ft, exclusive of GST and other statutory charges.
-          All prices, sizes and configurations are tentative and subject to change without notice.
+          All prices, sizes and configurations are tentative and subject to change without notice
         </p>
       </div>
     </section>
@@ -508,28 +508,67 @@ function FAQ() {
   );
 }
 
+// function LeadForm() {
+//   const [submitting, setSubmitting] = useState(false);
+//   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+//     setSubmitting(true);
+//     const form = e.currentTarget;
+//     const data = new FormData(form);
+//     const name = String(data.get("name") ?? "");
+//     const email = String(data.get("email") ?? "");
+//     const phone = String(data.get("phone") ?? "");
+//     const msg = String(data.get("msg") ?? "");
+//     const subject = encodeURIComponent(`EOI -DLF Hamilton Court 2 -${name}`);
+//     const body = encodeURIComponent(
+//       `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${msg}`,
+//     );
+//     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+//     setTimeout(() => {
+//       setSubmitting(false);
+//       form.reset();
+//       toast.success("Thank you -our relationship manager will reach out shortly.");
+//     }, 900);
+
 function LeadForm() {
   const [submitting, setSubmitting] = useState(false);
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = String(data.get("name") ?? "");
-    const email = String(data.get("email") ?? "");
-    const phone = String(data.get("phone") ?? "");
-    const msg = String(data.get("msg") ?? "");
-    const subject = encodeURIComponent(`EOI -DLF Hamilton Court 2 -${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${msg}`,
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setSubmitting(false);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setSubmitting(true);
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  formData.append("access_key", "3c59693d-4b24-462b-b2d1-5a19da1387a9");
+  formData.append("subject", "New Lead - DLF Hamilton Court 2");
+  formData.append("from_name", "DLF Hamilton Court 2 Landing Page");
+  formData.append("project", "DLF Hamilton Court 2");
+  formData.append("source", "Landing Page");
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      toast.success("Thank you! Our relationship manager will contact you shortly.");
       form.reset();
-      toast.success("Thank you -our relationship manager will reach out shortly.");
-    }, 900);
-  };
+    } else {
+      console.error(result);
+      toast.error("Submission failed. Please try again.");
+    }
+  } catch (error) {
+    console.error(error);
+    toast.error("Something went wrong. Please try again.");
+  } finally {
+    setSubmitting(false);
+  }
+};
+
   return (
     <section id="enquire" className="relative py-2 md:py-2 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -542,11 +581,11 @@ function LeadForm() {
             <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Register Your Interest</div>
             <div className="hairline my-4 w-24" />
             <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              Be amongst the first to receive the <span className="gold-text italic">private preview</span>.
+              Be amongst the first to receive the <span className="gold-text italic">private preview</span>
             </h2>
             <p className="mt-5 text-muted-foreground max-w-lg">
               Share your details and our relationship manager will reach out with the confidential brochure,
-              floor plans, master plan and priority-EOI details.
+              floor plans, master plan and priority-EOI details
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
@@ -560,7 +599,7 @@ function LeadForm() {
               </a>
             </div>
           </div>
-          <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]">
+          {/* <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]">
             <div className="grid gap-5">
               <div>
                 <Label htmlFor="name" className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Full Name</Label>
@@ -593,8 +632,121 @@ function LeadForm() {
                 Pricing and inventory are tentative and subject to change
               </p>
             </div>
-          </form>
-        </div>
+          </form> */
+          <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]">
+  <div className="grid gap-5">
+    <div>
+      <Label
+        htmlFor="name"
+        className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+      >
+        Full Name
+      </Label>
+
+      <Input
+        id="name"
+        name="name"
+        required
+        className="mt-2 h-12 bg-background/40 border-border"
+        placeholder="Your name"
+      />
+    </div>
+
+    <div className="grid gap-5 sm:grid-cols-2">
+      <div>
+        <Label
+          htmlFor="email"
+          className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+        >
+          Email
+        </Label>
+
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          required
+          className="mt-2 h-12 bg-background/40 border-border"
+          placeholder="you@email.com"
+        />
+      </div>
+
+      <div>
+        <Label
+          htmlFor="phone"
+          className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+        >
+          Phone
+        </Label>
+
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          className="mt-2 h-12 bg-background/40 border-border"
+          placeholder="+91"
+        />
+      </div>
+    </div>
+
+    <div>
+      <Label
+        htmlFor="msg"
+        className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
+      >
+        Message
+      </Label>
+
+      <Textarea
+        id="msg"
+        name="message"
+        rows={3}
+        className="mt-2 bg-background/40 border-border"
+        placeholder="Tell us your preference - apartment, corner unit or penthouse."
+      />
+    </div>
+
+    <div className="flex flex-col sm:flex-row gap-3">
+      <Button
+        type="submit"
+        disabled={submitting}
+        size="lg"
+        className="flex-1 rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 shadow-[var(--shadow-gold)]"
+      >
+        {submitting ? "Submitting…" : "Request EOI"}
+      </Button>
+
+      {/* <Button
+        type="button"
+        size="lg"
+        variant="outline"
+        className="flex-1 rounded-full gold-border bg-transparent hover:bg-primary/10 h-12"
+      >
+        <Download className="mr-2 h-4 w-4" />
+        Download Brochure
+      </Button> */
+      <Button
+  type="submit"
+  disabled={submitting}
+  size="lg"
+  variant="outline"
+  className="flex-1 rounded-full gold-border bg-transparent hover:bg-primary/10 h-12"
+>
+  <Download className="mr-2 h-4 w-4" />
+  {submitting ? "Submitting..." : "Download Brochure"}
+</Button>
+      }
+    </div>
+
+    <p className="text-[11px] text-muted-foreground">
+      By submitting, you consent to be contacted by our authorised channel
+      partner regarding this project. Pricing and inventory are tentative and
+      subject to change.
+    </p>
+  </div>
+</form>
+}</div>
       </div>
     </section>
   );
@@ -639,7 +791,7 @@ function Footer() {
               </div> */}
             </div>
             <p className="mt-5 text-sm text-muted-foreground max-w-sm">
-              An ultra-luxury residential enclave. This microsite is presented by an authorised channel partner.
+              An ultra-luxury residential enclave. This microsite is presented by an authorised channel partner
             </p>
           </div>
           <div>
