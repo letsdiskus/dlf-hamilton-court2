@@ -531,11 +531,14 @@ function LeadForm() {
               floor plans, master plan and priority-EOI details.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="tel:+919999999999" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
-                <Phone className="h-4 w-4 text-primary" /> +91 99999 99999
+              <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+                <Phone className="h-4 w-4 text-primary" /> {PHONE_DISPLAY}
               </a>
-              <a href="https://wa.me/919999999999" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
                 <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
+              </a>
+              <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+                <span className="text-primary">✉</span> {EMAIL}
               </a>
             </div>
           </div>
