@@ -590,7 +590,7 @@ function LeadForm() {
               </div>
               <p className="text-[11px] text-muted-foreground">
                 By submitting, you consent to be contacted by our authorised channel partner regarding this project.
-                Pricing and inventory are tentative and subject to change.
+                Pricing and inventory are tentative and subject to change
               </p>
             </div>
           </form>
