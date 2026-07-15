@@ -40,6 +40,12 @@ import amenity1Asset from "@/assets/amenity1.jpg.asset.json";
 import lobbyAsset from "@/assets/lobby.jpg.asset.json";
 import gardensAsset from "@/assets/gardens.jpg.asset.json";
 import towerAsset from "@/assets/tower.jpg.asset.json";
+import dlfLogo from "@/assets/dlf-logo.svg.asset.json";
+
+const PHONE_DISPLAY = "+91 97735 53393";
+const PHONE_TEL = "+919773553393";
+const WHATSAPP_URL = "https://wa.me/919773553393";
+const EMAIL = "akash@silverdomerealtors.com";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -52,7 +58,14 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const NAV = [
+const HEADER_NAV = [
+  { label: "Overview", href: "#overview" },
+  { label: "Amenities", href: "#amenities" },
+  { label: "Floor Plans", href: "#floorplans" },
+  { label: "Pricing", href: "#pricing" },
+];
+
+const FOOTER_NAV = [
   { label: "Overview", href: "#overview" },
   { label: "Highlights", href: "#highlights" },
   { label: "Amenities", href: "#amenities" },
@@ -81,16 +94,16 @@ function Nav() {
     >
       <div className="container-lux flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-full gold-border">
-            <Crown className="h-4 w-4 text-primary" />
+          <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5 shadow-sm">
+            <img src={dlfLogo.url} alt="DLF" className="h-6 w-auto" />
           </div>
-          <div className="leading-tight">
-            <div className="font-display text-lg tracking-wide">DLF</div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Hamilton Court 2</div>
+          <div className="leading-tight hidden sm:block">
+            <div className="font-display text-base tracking-wide">Hamilton Court 2</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Gurugram</div>
           </div>
         </a>
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV.map((n) => (
+        <nav className="hidden lg:flex items-center gap-8">
+          {HEADER_NAV.map((n) => (
             <a key={n.href} href={n.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
               {n.label}
             </a>
@@ -112,7 +125,7 @@ function Nav() {
       {open && (
         <div className="lg:hidden glass-dark border-t border-border">
           <div className="container-lux py-4 flex flex-col gap-3">
-            {NAV.map((n) => (
+            {HEADER_NAV.map((n) => (
               <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-2 text-sm text-muted-foreground hover:text-primary">
                 {n.label}
               </a>
@@ -493,9 +506,20 @@ function LeadForm() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const phone = String(data.get("phone") ?? "");
+    const msg = String(data.get("msg") ?? "");
+    const subject = encodeURIComponent(`EOI — DLF Hamilton Court 2 — ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${msg}`,
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     setTimeout(() => {
       setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       toast.success("Thank you — our relationship manager will reach out shortly.");
     }, 900);
   };
@@ -518,11 +542,14 @@ function LeadForm() {
               floor plans, master plan and priority-EOI details.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="tel:+919999999999" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
-                <Phone className="h-4 w-4 text-primary" /> +91 99999 99999
+              <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+                <Phone className="h-4 w-4 text-primary" /> {PHONE_DISPLAY}
               </a>
-              <a href="https://wa.me/919999999999" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
                 <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
+              </a>
+              <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition">
+                <span className="text-primary">✉</span> {EMAIL}
               </a>
             </div>
           </div>
@@ -570,14 +597,16 @@ function FloatingActions() {
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
-        href="https://wa.me/919999999999"
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
         className="group grid h-14 w-14 place-items-center rounded-full bg-[oklch(0.6_0.16_150)] text-white shadow-lg hover:scale-110 transition-transform"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
       <a
-        href="tel:+919999999999"
+        href={`tel:${PHONE_TEL}`}
         aria-label="Call now"
         className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:scale-110 transition-transform"
       >
@@ -594,11 +623,11 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <div className="grid h-9 w-9 place-items-center rounded-full gold-border">
-                <Crown className="h-4 w-4 text-primary" />
+              <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5">
+                <img src={dlfLogo.url} alt="DLF" className="h-6 w-auto" />
               </div>
               <div>
-                <div className="font-display text-lg">DLF Hamilton Court 2</div>
+                <div className="font-display text-lg">Hamilton Court 2</div>
                 <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Gurugram</div>
               </div>
             </div>
@@ -609,15 +638,16 @@ function Footer() {
           <div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Contact</div>
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <div>+91 99999 99999</div>
-              <div>enquiry@hamiltoncourt2.example</div>
+              <div><a href={`tel:${PHONE_TEL}`} className="hover:text-primary">{PHONE_DISPLAY}</a></div>
+              <div><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary">WhatsApp: {PHONE_DISPLAY}</a></div>
+              <div><a href={`mailto:${EMAIL}`} className="hover:text-primary">{EMAIL}</a></div>
               <div>Gurugram, Haryana, India</div>
             </div>
           </div>
           <div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Explore</div>
             <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-              {NAV.map((n) => (
+              {FOOTER_NAV.map((n) => (
                 <a key={n.href} href={n.href} className="hover:text-primary transition-colors">{n.label}</a>
               ))}
             </div>
