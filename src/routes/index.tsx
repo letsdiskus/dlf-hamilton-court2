@@ -506,9 +506,20 @@ function LeadForm() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const phone = String(data.get("phone") ?? "");
+    const msg = String(data.get("msg") ?? "");
+    const subject = encodeURIComponent(`EOI — DLF Hamilton Court 2 — ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${msg}`,
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     setTimeout(() => {
       setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       toast.success("Thank you — our relationship manager will reach out shortly.");
     }, 900);
   };
