@@ -597,14 +597,16 @@ function FloatingActions() {
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
-        href="https://wa.me/919999999999"
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
         className="group grid h-14 w-14 place-items-center rounded-full bg-[oklch(0.6_0.16_150)] text-white shadow-lg hover:scale-110 transition-transform"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
       <a
-        href="tel:+919999999999"
+        href={`tel:${PHONE_TEL}`}
         aria-label="Call now"
         className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-gold)] hover:scale-110 transition-transform"
       >
@@ -621,11 +623,11 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <div className="grid h-9 w-9 place-items-center rounded-full gold-border">
-                <Crown className="h-4 w-4 text-primary" />
+              <div className="flex h-11 items-center justify-center rounded-md bg-white/95 px-3 py-1.5">
+                <img src={dlfLogo.url} alt="DLF" className="h-6 w-auto" />
               </div>
               <div>
-                <div className="font-display text-lg">DLF Hamilton Court 2</div>
+                <div className="font-display text-lg">Hamilton Court 2</div>
                 <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Gurugram</div>
               </div>
             </div>
@@ -636,19 +638,21 @@ function Footer() {
           <div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Contact</div>
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <div>+91 99999 99999</div>
-              <div>enquiry@hamiltoncourt2.example</div>
+              <div><a href={`tel:${PHONE_TEL}`} className="hover:text-primary">{PHONE_DISPLAY}</a></div>
+              <div><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary">WhatsApp: {PHONE_DISPLAY}</a></div>
+              <div><a href={`mailto:${EMAIL}`} className="hover:text-primary">{EMAIL}</a></div>
               <div>Gurugram, Haryana, India</div>
             </div>
           </div>
           <div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Explore</div>
             <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-              {NAV.map((n) => (
+              {FOOTER_NAV.map((n) => (
                 <a key={n.href} href={n.href} className="hover:text-primary transition-colors">{n.label}</a>
               ))}
             </div>
           </div>
+        </div>
         </div>
         <div className="hairline my-10" />
         <p className="text-[11px] leading-relaxed text-muted-foreground max-w-4xl">
