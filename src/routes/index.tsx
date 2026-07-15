@@ -40,6 +40,12 @@ import amenity1Asset from "@/assets/amenity1.jpg.asset.json";
 import lobbyAsset from "@/assets/lobby.jpg.asset.json";
 import gardensAsset from "@/assets/gardens.jpg.asset.json";
 import towerAsset from "@/assets/tower.jpg.asset.json";
+import dlfLogo from "@/assets/dlf-logo.svg.asset.json";
+
+const PHONE_DISPLAY = "+91 97735 53393";
+const PHONE_TEL = "+919773553393";
+const WHATSAPP_URL = "https://wa.me/919773553393";
+const EMAIL = "akash@silverdomerealtors.com";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -52,7 +58,14 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const NAV = [
+const HEADER_NAV = [
+  { label: "Overview", href: "#overview" },
+  { label: "Amenities", href: "#amenities" },
+  { label: "Floor Plans", href: "#floorplans" },
+  { label: "Pricing", href: "#pricing" },
+];
+
+const FOOTER_NAV = [
   { label: "Overview", href: "#overview" },
   { label: "Highlights", href: "#highlights" },
   { label: "Amenities", href: "#amenities" },
