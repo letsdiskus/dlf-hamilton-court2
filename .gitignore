@@ -31,3 +31,11 @@ dist-ssr
 *.sln
 *.sw?
 .next
+
+# Next.js specific
+.next/
+out/
+build/
+node_modules/
+.env*.local
+.vercel/
