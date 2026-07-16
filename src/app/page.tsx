@@ -365,14 +365,14 @@ function Highlights() {
 }
 
 const AMENITIES = [
-  { icon: Waves, title: "Infinity Pool" },
-  { icon: Dumbbell, title: "State-of-Art Gym" },
-  { icon: Sparkles, title: "Spa & Wellness" },
-  { icon: Utensils, title: "Signature Dining" },
-  { icon: TreePine, title: "Landscaped Gardens" },
-  { icon: ShieldCheck, title: "24×7 Security" },
-  { icon: Car, title: "Valet & Concierge" },
-  { icon: Wifi, title: "Smart Home Ready" },
+  { image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80", title: "Infinity Pool" },
+  { image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80", title: "State-of-Art Gym" },
+  { image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", title: "Spa & Wellness" },
+  { image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80", title: "Signature Dining" },
+  { image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80", title: "Landscaped Gardens" },
+  { image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80", title: "24×7 Security" },
+  { image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80", title: "Valet & Concierge" },
+  { image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80", title: "Smart Home Ready" },
 ];
 
 function Amenities() {
@@ -392,12 +392,13 @@ function Amenities() {
           {AMENITIES.map((a) => (
             <div
               key={a.title}
-              className="group flex flex-col items-center justify-center rounded-2xl glass p-8 text-center transition-all hover:border-primary/50 hover:-translate-y-1"
+              className="group relative flex flex-col items-center justify-start rounded-2xl overflow-hidden glass p-6 pt-8 text-center transition-all hover:border-primary/50 hover:-translate-y-1 h-48 md:h-56"
             >
-              <div className="grid h-14 w-14 place-items-center rounded-full gold-border bg-background/40 mb-4 group-hover:bg-primary/10 transition-colors">
-                <a.icon className="h-6 w-6 text-primary" />
+              <div className="absolute inset-0 -z-10">
+                <img src={a.image} alt={a.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/40 group-hover:from-background/70 group-hover:via-background/50 group-hover:to-background/30 transition-colors duration-500" />
               </div>
-              <div className="font-display text-lg">{a.title}</div>
+              <div className="font-display text-lg md:text-xl font-medium drop-shadow-md z-10">{a.title}</div>
             </div>
           ))}
         </div>
