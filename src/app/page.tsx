@@ -61,8 +61,8 @@ const logoImage = "/images/logo.png";
 
 const PHONE_DISPLAY = "+91 97735 53393";
 const PHONE_TEL = "+919773553393";
-const WHATSAPP_URL = "https://wa.me/919773553393";
-const EMAIL = "akash@silverdomerealtors.com";
+const WHATSAPP_URL = "https://wa.me/919773553393?text=I%20want%20to%20know%20more%20about%20this%20project%20DLF%20Hamilton%20Court";
+// const EMAIL = "akash@silverdomerealtors.com";
 
 
 
@@ -892,12 +892,12 @@ function LeadForm() {
               >
                 <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
               </a>
-              <a
+              {/* <a
                 href={`mailto:${EMAIL}`}
                 className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
               >
                 <span className="text-primary">✉</span> {EMAIL}
-              </a>
+              </a> */}
             </div>
           </div>
           <ContactForm className="glass rounded-3xl p-8 shadow-[var(--shadow-luxe)]" />
@@ -1030,11 +1030,11 @@ function Footer() {
                   WhatsApp: {PHONE_DISPLAY}
                 </a>
               </div>
-              <div>
+              {/* <div>
                 <a href={`mailto:${EMAIL}`} className="hover:text-primary">
                   {EMAIL}
                 </a>
-              </div>
+              </div> */}
               <div>Gurugram, Haryana, India</div>
             </div>
           </div>
