@@ -41,6 +41,7 @@ import {
   Menu,
   X,
   Mail,
+  Lock,
 } from "lucide-react";
 
 const heroImage = "/images/hero.jpg";
@@ -450,16 +451,19 @@ const FLOORPLANS = [
     type: "4.5 BHK Residence",
     size: "≈ 5,500 sq ft",
     detail: "Signature layout with private lift lobby, chef's kitchen, staff quarters.",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80",
   },
   {
     type: "4.5 BHK Corner",
     size: "≈ 5,500 sq ft",
     detail: "Twin-aspect corner unit with wrap-around balconies and green views.",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80",
   },
   {
     type: "Sky Penthouse",
     size: "7,500 – 8,500 sq ft",
     detail: "Duplex penthouse with private terrace, plunge pool and skyline vistas.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -480,19 +484,33 @@ function FloorPlans() {
               <h3 className="mt-3 font-display text-3xl">{f.type}</h3>
               <div className="mt-2 font-display text-xl gold-text">{f.size}</div>
               <p className="mt-4 text-sm text-muted-foreground">{f.detail}</p>
-              <div className="mt-8 aspect-[4/3] rounded-2xl border border-dashed border-primary/30 bg-background/40 grid place-items-center">
-                <div className="text-center text-muted-foreground text-xs">
-                  <Ruler className="mx-auto h-6 w-6 text-primary/60 mb-2" />
-                  Floor plan available on request
+              
+              <div className="mt-8 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden">
+                <img 
+                  src={f.image} 
+                  alt={`${f.type} layout preview`} 
+                  className="absolute inset-0 h-full w-full object-cover blur-[8px] scale-110 opacity-70" 
+                  loading="lazy" 
+                />
+                <div className="absolute inset-0 bg-background/40" />
+                
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#c29b57]/90 shadow-[0_0_20px_rgba(194,155,87,0.4)] mb-4">
+                    <Lock className="h-6 w-6 text-black" />
+                  </div>
+                  <div className="font-display text-xl font-bold text-white drop-shadow-md">Layout Plan is Locked</div>
+                  <div className="mt-2 text-sm text-gray-200 max-w-[220px] font-medium drop-shadow-sm">
+                    Please register to unlock and view high-resolution floor plans.
+                  </div>
+                  <Button
+                    asChild
+                    className="mt-6 rounded-md bg-[#c29b57] text-black hover:bg-[#a98548] font-semibold px-6 border-none"
+                  >
+                    <a href="#enquire">Unlock Floor Plan</a>
+                  </Button>
                 </div>
               </div>
-              <Button
-                asChild
-                variant="outline"
-                className="mt-6 w-full rounded-full gold-border bg-transparent hover:bg-primary/10"
-              >
-                <a href="#enquire">Request This Plan</a>
-              </Button>
+
             </div>
           ))}
         </div>
