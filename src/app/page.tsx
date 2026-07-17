@@ -873,11 +873,10 @@ function LeadForm() {
               <span className="gold-text italic">private preview</span>
             </h2>
             <p className="mt-5 text-muted-foreground max-w-lg">
-              Share your details and our relationship manager will reach out with the confidential
-              brochure, floor plans, master plan and priority-EOI details
+              Share your contact details to get more information about this Project.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              {/* <a
                 href={`tel:${PHONE_TEL}`}
                 className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
               >
@@ -890,7 +889,7 @@ function LeadForm() {
                 className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
               >
                 <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
-              </a>
+              </a> */}
               {/* <a
                 href={`mailto:${EMAIL}`}
                 className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm hover:border-primary transition"
