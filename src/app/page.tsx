@@ -61,7 +61,7 @@ const logoImage = "/images/logo.png";
 
 const PHONE_DISPLAY = "+91 97735 53393";
 const PHONE_TEL = "+919773553393";
-const WHATSAPP_URL = "https://wa.me/919773553393?text=I%20want%20to%20know%20more%20about%20this%20project%20DLF%20Hamilton%20Court";
+const WHATSAPP_URL = "https://wa.me/919773553393?text=I%20want%20to%20know%20more%20about%20this%20project%20DLF%20Hamilton%20Court2";
 // const EMAIL = "akash@silverdomerealtors.com";
 
 
@@ -96,9 +96,8 @@ function Nav() {
   }, []);
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-dark py-3" : "py-5 bg-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "glass-dark py-3" : "py-5 bg-transparent"
+        }`}
     >
       <div className="container-lux flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
@@ -262,7 +261,7 @@ function Overview() {
   return (
     <section id="overview" className="relative py-2 md:py-3">
       <div className="container-lux">
-        <SectionTitle eyebrow="The Project" title="An enclave curated for the few." />
+        <SectionTitle eyebrow="The Project" title="An enclave curated for the few" />
         <div className="mt-16 grid gap-10 md:grid-cols-2 md:items-center">
           <div className="relative overflow-hidden rounded-3xl shadow-[var(--shadow-luxe)]">
             <img
@@ -346,7 +345,7 @@ function Highlights() {
   return (
     <section id="highlights" className="relative py-1 md:py-5 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
-        <SectionTitle eyebrow="Key Highlights" title="Details that define the address." />
+        <SectionTitle eyebrow="Key Highlights" title="Details that define the address" />
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((h) => (
             <div
@@ -386,7 +385,7 @@ function Amenities() {
       <div className="container-lux">
         <SectionTitle
           eyebrow="Premium Amenities"
-          title="A private world, curated."
+          title="A private world, curated"
           subtitle="Every amenity has been chosen to reflect a rarefied way of life."
         />
         <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -414,7 +413,7 @@ function MasterPlan() {
       <div className="container-lux">
         <SectionTitle
           eyebrow="Master Plan"
-          title="Twelve and a half acres, thoughtfully composed."
+          title="Twelve and a half acres, thoughtfully composed"
         />
         <div className="mt-16 relative overflow-hidden rounded-3xl gold-border shadow-[var(--shadow-luxe)]">
           <div className="relative aspect-[16/9]">
@@ -471,7 +470,7 @@ function FloorPlans() {
   return (
     <section id="floorplans" className="relative py-1 md:py-1">
       <div className="container-lux">
-        <SectionTitle eyebrow="Floor Plans" title="Three ways to live grandly." />
+        <SectionTitle eyebrow="Floor Plans" title="Three ways to live grandly" />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {FLOORPLANS.map((f, i) => (
             <div
@@ -484,16 +483,16 @@ function FloorPlans() {
               <h3 className="mt-3 font-display text-3xl">{f.type}</h3>
               <div className="mt-2 font-display text-xl gold-text">{f.size}</div>
               <p className="mt-4 text-sm text-muted-foreground">{f.detail}</p>
-              
+
               <div className="mt-8 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden">
-                <img 
-                  src={f.image} 
-                  alt={`${f.type} layout preview`} 
-                  className="absolute inset-0 h-full w-full object-cover blur-[8px] scale-110 opacity-70" 
-                  loading="lazy" 
+                <img
+                  src={f.image}
+                  alt={`${f.type} layout preview`}
+                  className="absolute inset-0 h-full w-full object-cover blur-[8px] scale-110 opacity-70"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-background/40" />
-                
+
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#c29b57]/90 shadow-[0_0_20px_rgba(194,155,87,0.4)] mb-4">
                     <Lock className="h-6 w-6 text-black" />
@@ -534,7 +533,7 @@ function Location() {
       <div className="container-lux">
         <SectionTitle
           eyebrow="Location Advantages"
-          title="At the centre of everything that matters."
+          title="At the centre of everything that matters"
         />
         <div className="mt-16 mx-auto max-w-3xl">
           <ol className="relative border-l border-primary/30 pl-8 space-y-8">
@@ -613,7 +612,7 @@ function Gallery() {
   return (
     <section id="gallery" className="relative py-2 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
-        <SectionTitle eyebrow="Gallery" title="A visual preview." />
+        <SectionTitle eyebrow="Gallery" title="A visual preview" />
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {GALLERY.map((g, i) => (
             <div
@@ -666,7 +665,7 @@ function FAQ() {
   return (
     <section id="faq" className="relative py-2 md:py-2">
       <div className="container-lux max-w-3xl">
-        <SectionTitle eyebrow="FAQ" title="Frequently asked questions." />
+        <SectionTitle eyebrow="FAQ" title="Frequently asked questions" />
         <Accordion type="single" collapsible className="mt-12">
           {FAQS.map((f, i) => (
             <AccordionItem
