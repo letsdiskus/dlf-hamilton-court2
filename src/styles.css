@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss" source none);
 @source "../src";
 @import "tw-animate-css";
 
@@ -48,7 +48,8 @@
   --card-foreground: oklch(0.96 0.01 90);
   --popover: oklch(0.18 0.015 260);
   --popover-foreground: oklch(0.96 0.01 90);
-  --primary: oklch(0.78 0.12 82); /* champagne gold */
+  --primary: oklch(0.78 0.12 82);
+  /* champagne gold */
   --primary-foreground: oklch(0.15 0.01 260);
   --secondary: oklch(0.22 0.02 260);
   --secondary-foreground: oklch(0.95 0.01 90);
@@ -64,12 +65,10 @@
   --gold: oklch(0.82 0.13 82);
   --gold-soft: oklch(0.88 0.08 82);
 
-  --gradient-hero: linear-gradient(
-    180deg,
-    oklch(0.08 0.01 260 / 0.35) 0%,
-    oklch(0.08 0.01 260 / 0.55) 50%,
-    oklch(0.08 0.01 260 / 0.95) 100%
-  );
+  --gradient-hero: linear-gradient(180deg,
+      oklch(0.08 0.01 260 / 0.35) 0%,
+      oklch(0.08 0.01 260 / 0.55) 50%,
+      oklch(0.08 0.01 260 / 0.95) 100%);
   --gradient-gold: linear-gradient(135deg, oklch(0.88 0.11 82) 0%, oklch(0.72 0.14 70) 100%);
   --gradient-panel: linear-gradient(180deg, oklch(0.2 0.02 260 / 0.6), oklch(0.14 0.015 260 / 0.9));
   --shadow-luxe: 0 30px 80px -20px oklch(0 0 0 / 0.6), 0 0 0 1px oklch(0.82 0.13 82 / 0.08);
@@ -84,15 +83,18 @@
   * {
     border-color: var(--color-border);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+
   h1,
   h2,
   h3,
@@ -128,12 +130,10 @@
 
 @utility hairline {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklab, var(--gold) 55%, transparent),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in oklab, var(--gold) 55%, transparent),
+      transparent);
 }
 
 @utility container-lux {
@@ -148,23 +148,28 @@
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 @keyframes lux-zoom {
   from {
     transform: scale(1.08);
   }
+
   to {
     transform: scale(1);
   }
 }
+
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -173,6 +178,7 @@
 @utility animate-fade-up {
   animation: lux-fade-up 0.9s ease-out both;
 }
+
 @utility animate-hero-zoom {
   animation: lux-zoom 12s ease-out both;
 }

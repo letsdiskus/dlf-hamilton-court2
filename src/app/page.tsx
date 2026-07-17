@@ -126,7 +126,7 @@ function Nav() {
             variant="default"
             className="rounded-full bg-primary text-primary-foreground hover:opacity-90 px-5"
           >
-            <a href="#enquire">Request EOI</a>
+            <a href="#enquire">Inquire Now</a>
           </Button>
         </div>
         <button
@@ -152,7 +152,7 @@ function Nav() {
             ))}
             <Button asChild className="rounded-full mt-2">
               <a href="#enquire" onClick={() => setOpen(false)}>
-                Request EOI
+                Inquery Now
               </a>
             </Button>
           </div>
@@ -196,7 +196,7 @@ function Hero() {
                 size="lg"
                 className="rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 px-7 shadow-[var(--shadow-gold)]"
               >
-                <a href="#enquire">Request EOI</a>
+                <a href="#enquire">Inquire Now</a>
               </Button>
               <Button
                 asChild
@@ -277,7 +277,7 @@ function Overview() {
             <p className="text-lg leading-relaxed text-muted-foreground">
               Set behind private gates in Gurugram's most sought-after corridor, DLF Hamilton Court
               2 is a limited collection of expansive 4.5 BHK residences and sky-penthouses. Each
-              home is engineered for scale -approx.{" "}
+              home is engineered for scale - approx.{" "}
               <span className="text-foreground">5,500 sq ft</span> of living, with penthouses
               extending to <span className="text-foreground">8,500 sq ft</span>.
             </p>
@@ -418,23 +418,23 @@ function MasterPlan() {
         <div className="mt-16 relative overflow-hidden rounded-3xl gold-border shadow-[var(--shadow-luxe)]">
           <div className="relative aspect-[16/9]">
             <img
-              src={gardensImage}
+              src="/images/florplan.webp"
               alt="Master plan preview -DLF Hamilton Court 2 landscape"
-              className="absolute inset-0 h-full w-full object-cover opacity-60"
+              className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             <div className="absolute inset-0 grid place-items-center text-center px-6">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Preview</div>
+                {/* <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Preview</div> */}
                 <div className="mt-3 font-display text-3xl md:text-5xl">
                   Detailed master plan on request
                 </div>
-                <p className="mt-4 max-w-xl mx-auto text-sm text-muted-foreground">
+                {/* <p className="mt-4 max-w-xl mx-auto text-sm text-muted-foreground">
                   Share your details to receive the confidential master plan and site walkthrough
-                </p>
+                </p> */}
                 <Button asChild className="mt-6 rounded-full bg-primary text-primary-foreground">
-                  <a href="#enquire">Request Master Plan</a>
+                  <a href="#enquire">Download Brochure</a>
                 </Button>
               </div>
             </div>
@@ -825,7 +825,7 @@ function ContactForm({ className }: { className?: string }) {
             size="lg"
             className="flex-1 rounded-full bg-primary text-primary-foreground hover:opacity-90 h-12 shadow-[var(--shadow-gold)]"
           >
-            {submitting ? "Submitting…" : "Request EOI"}
+            {submitting ? "Submitting…" : "Inquire Now"}
           </Button>
 
           <Button
@@ -1012,9 +1012,9 @@ function Footer() {
             </p>
           </div>
           <div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Contact</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-primary">Location</div>
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <div>
+              {/* <div>
                 <a href={`tel:${PHONE_TEL}`} className="hover:text-primary">
                   {PHONE_DISPLAY}
                 </a>
@@ -1029,7 +1029,7 @@ function Footer() {
                   WhatsApp: {PHONE_DISPLAY}
                 </a>
               </div>
-              {/* <div>
+              <div>
                 <a href={`mailto:${EMAIL}`} className="hover:text-primary">
                   {EMAIL}
                 </a>
