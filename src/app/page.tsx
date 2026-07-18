@@ -249,7 +249,7 @@ function SectionTitle({
   title,
   subtitle,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
 }) {
