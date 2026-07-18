@@ -436,12 +436,12 @@ function MasterPlan() {
             <div className="absolute inset-0 grid place-items-center text-center px-6">
               <div>
                 {/* <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Preview</div> */}
-                <div className="mt-3 font-display text-3xl md:text-5xl">
+                <div className="mt-3 font-display text-3xl md:text-5xl text-white">
                   Detailed plan on request
                 </div>
                 {/* <p className="mt-4 max-w-xl mx-auto text-sm text-muted-foreground">
                   Share your details to receive the confidential master plan and site walkthrough
-                </p> */} <br /><br /><br /><br />
+                </p> */}
                 <Button asChild className="mt-6 rounded-full bg-primary text-primary-foreground">
                   <a href="#enquire">Download Brochure</a>
                 </Button>
@@ -547,20 +547,41 @@ function Location() {
           // eyebrow="Location Advantages"
           title="At the centre of everything that matters"
         />
-        <div className="mt-16 mx-auto max-w-3xl">
-          <ol className="relative border-l border-primary/30 pl-8 space-y-8">
-            {LOCATION.map((l) => (
-              <li key={l.place} className="relative">
-                <span className="absolute -left-[41px] grid h-6 w-6 place-items-center rounded-full bg-primary text-primary-foreground text-[10px] font-semibold">
-                  <MapPin className="h-3 w-3" />
-                </span>
-                <div className="glass rounded-2xl p-5 flex items-center justify-between gap-4">
-                  <div className="font-display text-xl">{l.place}</div>
-                  <div className="text-sm gold-text font-medium shrink-0">{l.time}</div>
-                </div>
-              </li>
-            ))}
-          </ol>
+        <div className="mt-16 grid gap-8 lg:grid-cols-[420px_1fr] items-start">
+
+          {/* Left Side - Location List */}
+          <div>
+            <ol className="space-y-4">
+              {LOCATION.map((l) => (
+                <li key={l.place}>
+                  <div className="glass rounded-xl border border-primary/20 px-6 py-5 flex items-center justify-between transition hover:border-primary/50">
+                    <span className="font-display text-lg">
+                      {l.place}
+                    </span>
+
+                    <span className="gold-text font-medium">
+                      {l.time}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Right Side - Google Map */}
+          <div className="overflow-hidden rounded-2xl border border-primary/20 shadow-[var(--shadow-luxe)] h-[520px]">
+            <iframe
+              title="DLF Hamilton Court 2 Location"
+              src="https://www.google.com/maps?q=DLF+Phase+IV+Sector+28+Gurugram&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
         </div>
       </div>
     </section>
@@ -595,8 +616,13 @@ function Pricing() {
             >
               <div className="p-5 font-display text-lg md:text-xl">{p.type}</div>
               <div className="p-5 text-muted-foreground text-sm md:text-base">{p.size}</div>
-              <div className="p-5 text-right font-display text-lg md:text-2xl gold-text">
-                {p.price}
+              <div className="p-5 text-right font-display text-lg md:text-2xl">
+                <a
+                  href="#enquire"
+                  className="gold-text hover:underline transition-all duration-300"
+                >
+                  {p.price}
+                </a>
               </div>
             </div>
           ))}
@@ -630,7 +656,7 @@ function Gallery() {
           {GALLERY.map((g, i) => (
             <div
               key={i}
-              className={`group relative overflow-hidden rounded-2xl gold-border ${i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-[4/3]" : "aspect-square"}`}
+              className="group relative overflow-hidden rounded-2xl gold-border aspect-square md:aspect-[4/3]"
             >
               <img
                 src={g.src}
