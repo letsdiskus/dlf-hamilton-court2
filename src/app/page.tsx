@@ -180,16 +180,22 @@ function Hero() {
           <div className="max-w-3xl animate-fade-up">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs uppercase tracking-[0.25em] text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              New Launch · Gurugram
+              New Launch
             </div>
-            <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl">
-              A Rare Address, <br />
+            {/* <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl">
+              HAMILTON COURT 2 <br />
               <span className="gold-text italic">Reimagined</span>
+            </h1> */}
+            <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl">
+              HAMILTON COURT{" "}
+              <span className="font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
+                2
+              </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground">
-              DLF Hamilton Court 2 -an ultra-luxury enclave of 4.5 BHK residences and
+            {/* <p className="mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground">
+              DLF Hamilton Court 2 an ultra-luxury enclave of 4.5 BHK residences and
               sky-penthouses, set across 12.5 acres in the heart of Gurugram
-            </p>
+            </p> */}
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Button
                 asChild
@@ -261,8 +267,9 @@ function Overview() {
   return (
     <section id="overview" className="relative py-2 md:py-3">
       <div className="container-lux">
-        <SectionTitle eyebrow="The Project" title="An enclave curated for the few" />
-        <div className="mt-16 grid gap-10 md:grid-cols-2 md:items-center">
+        <SectionTitle
+          title="DLF Hamilton Court 2" />
+        <div className="mt-16 grid gap-10 md:grid-cols-2 items-stretch">
           <div className="relative overflow-hidden rounded-3xl shadow-[var(--shadow-luxe)]">
             <img
               src={interiorImage}
@@ -274,16 +281,18 @@ function Overview() {
             />
           </div>
           <div>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            {/* <p className="text-lg leading-relaxed text-muted-foreground">
               Set behind private gates in Gurugram's most sought-after corridor, DLF Hamilton Court
               2 is a limited collection of expansive 4.5 BHK residences and sky-penthouses. Each
               home is engineered for scale - approx.{" "}
               <span className="text-foreground">5,500 sq ft</span> of living, with penthouses
               extending to <span className="text-foreground">8,500 sq ft</span>.
-            </p>
+            </p> */}
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Six to seven sculpted towers rise from twelve and a half acres of landscaped gardens,
-              water bodies and low-density living -an address that speaks softly, yet unmistakably
+              DLF Hamilton Court 2 is an exclusive luxury residential development located in one of Gurugram's most prestigious and well-connected neighborhoods. Designed for discerning homeowners, the project features a limited collection of expansive 4.5 BHK luxury residences and ultra-premium sky penthouses. Each residence offers approximately 5,500 sq. ft. of thoughtfully planned living space, while the penthouses extend up to 8,500 sq. ft., delivering unmatched space, privacy, and elegance.</p>
+
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              Spread across approximately 12.5 acres of beautifully landscaped grounds, DLF Hamilton Court 2 Gurugram comprises six to seven architecturally refined towers surrounded by lush gardens, tranquil water features, and low-density planning. Combining contemporary architecture, world-class amenities, and an elite address, DLF Hamilton Court 2 offers a lifestyle that reflects sophistication, exclusivity, and timeless luxury in the heart of Gurugram.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
@@ -345,7 +354,7 @@ function Highlights() {
   return (
     <section id="highlights" className="relative py-1 md:py-5 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
-        <SectionTitle eyebrow="Key Highlights" title="Details that define the address" />
+        <SectionTitle title="Details that define the address" />
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((h) => (
             <div
@@ -384,7 +393,7 @@ function Amenities() {
       </div>
       <div className="container-lux">
         <SectionTitle
-          eyebrow="Premium Amenities"
+          // eyebrow="Premium Amenities"
           title="A private world, curated"
           subtitle="Every amenity has been chosen to reflect a rarefied way of life."
         />
@@ -412,7 +421,7 @@ function MasterPlan() {
     <section id="masterplan" className="relative py-1 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
         <SectionTitle
-          eyebrow="Master Plan"
+          // eyebrow="Master Plan"
           title="Twelve and a half acres, thoughtfully composed"
         />
         <div className="mt-16 relative overflow-hidden rounded-3xl gold-border shadow-[var(--shadow-luxe)]">
@@ -428,11 +437,11 @@ function MasterPlan() {
               <div>
                 {/* <div className="text-[10px] uppercase tracking-[0.35em] text-primary">Preview</div> */}
                 <div className="mt-3 font-display text-3xl md:text-5xl">
-                  Detailed master plan on request
+                  Detailed plan on request
                 </div>
                 {/* <p className="mt-4 max-w-xl mx-auto text-sm text-muted-foreground">
                   Share your details to receive the confidential master plan and site walkthrough
-                </p> */}
+                </p> */} <br /><br /><br /><br />
                 <Button asChild className="mt-6 rounded-full bg-primary text-primary-foreground">
                   <a href="#enquire">Download Brochure</a>
                 </Button>
@@ -470,7 +479,10 @@ function FloorPlans() {
   return (
     <section id="floorplans" className="relative py-1 md:py-1">
       <div className="container-lux">
-        <SectionTitle eyebrow="Floor Plans" title="Three ways to live grandly" />
+        <SectionTitle
+          // eyebrow="Floor Plans"
+          title="Floor Plans"
+        />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {FLOORPLANS.map((f, i) => (
             <div
@@ -532,7 +544,7 @@ function Location() {
     <section id="location" className="relative py-2 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
         <SectionTitle
-          eyebrow="Location Advantages"
+          // eyebrow="Location Advantages"
           title="At the centre of everything that matters"
         />
         <div className="mt-16 mx-auto max-w-3xl">
@@ -556,7 +568,7 @@ function Location() {
 }
 
 const PRICING = [
-  { type: "4.5 BHK Residence", size: "≈ 5,500 sq ft", price: "₹27.50 Cr* + GST" },
+  { type: "4.5 BHK Residence", size: "≈ 5,500 sq ft", price: "On Request" },
   { type: "4.5 BHK Corner", size: "≈ 5,500 sq ft", price: "On Request" },
   { type: "Sky Penthouse", size: "7,500 – 8,500 sq ft", price: "On Request" },
 ];
@@ -566,9 +578,9 @@ function Pricing() {
     <section id="pricing" className="relative py-2 md:py-2">
       <div className="container-lux">
         <SectionTitle
-          eyebrow="Indicative Pricing"
-          title="Positioned at ≈ ₹50,000 per sq ft."
-          subtitle="Pricing is indicative and subject to change at the sole discretion of the developer."
+          // eyebrow="Indicative Pricing"
+          title="DLF Hamilton Court 2 Price"
+        // subtitle="Pricing is indicative and subject to change at the sole discretion of the developer."
         />
         <div className="mt-16 overflow-hidden rounded-3xl glass shadow-[var(--shadow-luxe)]">
           <div className="grid grid-cols-3 border-b border-border bg-background/40 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
@@ -590,9 +602,7 @@ function Pricing() {
           ))}
         </div>
         <p className="mt-6 text-xs text-muted-foreground text-center max-w-2xl mx-auto">
-          * Indicative price for a ≈ 5,500 sq ft apartment at approximately ₹50,000 per sq ft,
-          exclusive of GST and other statutory charges. All prices, sizes and configurations are
-          tentative and subject to change without notice
+          *Indicative price for an approximately 5,500 sq ft apartment is available on request. Prices are exclusive of GST and other applicable statutory charges. All prices, sizes, and configurations are tentative and subject to change without prior notice.
         </p>
       </div>
     </section>
@@ -612,7 +622,10 @@ function Gallery() {
   return (
     <section id="gallery" className="relative py-2 md:py-2 bg-[oklch(0.12_0.015_260)]">
       <div className="container-lux">
-        <SectionTitle eyebrow="Gallery" title="A visual preview" />
+        <SectionTitle
+          // eyebrow="Gallery" 
+          title="A visual preview"
+        />
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {GALLERY.map((g, i) => (
             <div
@@ -637,7 +650,7 @@ function Gallery() {
 const FAQS = [
   {
     q: "Where is DLF Hamilton Court 2 located?",
-    a: "The project is located in Gurugram. Detailed sector and address will be shared with confirmed enquiries.",
+    a: "DLF Hamilton Court 2 is located in DLF Phase 4, Gurugram (Gurgaon), one of the city's most prestigious and well-connected residential neighborhoods. The project enjoys excellent connectivity to Golf Course Road, MG Road, Cyber City, NH-48, and Rapid Metro stations. It is also close to leading schools, hospitals, premium shopping destinations, five-star hotels, and major business hubs, making it an ideal address for luxury living and seamless urban convenience.",
   },
   {
     q: "What is the total land area?",
@@ -653,7 +666,7 @@ const FAQS = [
   },
   {
     q: "What is the indicative price?",
-    a: "Indicative pricing is around ₹50,000 per sq ft, i.e. approximately ₹27.50 Cr + GST for a 5,500 sq ft residence. Prices are tentative and subject to change.",
+    a: "Indicative pricing is available on request for residences at DLF Hamilton Court 2. Final pricing is subject to apartment configuration, floor preference, and applicable charges, including GST. All prices are tentative and subject to change without prior notice.",
   },
   {
     q: "When will the project launch?",
@@ -665,7 +678,10 @@ function FAQ() {
   return (
     <section id="faq" className="relative py-2 md:py-2">
       <div className="container-lux max-w-3xl">
-        <SectionTitle eyebrow="FAQ" title="Frequently asked questions" />
+        <SectionTitle
+          // eyebrow="FAQ" 
+          title="Frequently asked questions"
+        />
         <Accordion type="single" collapsible className="mt-12">
           {FAQS.map((f, i) => (
             <AccordionItem
@@ -923,7 +939,7 @@ function PopupForm() {
             Register Your Interest
           </DialogTitle>
           <DialogDescription>
-            Share your details to receive the confidential brochure, floor plans, and master plan.
+            Share your contact details to get more information about this Project.
           </DialogDescription>
         </DialogHeader>
         <ContactForm />
