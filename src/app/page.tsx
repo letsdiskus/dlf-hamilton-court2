@@ -48,7 +48,7 @@ const heroImage = "/images/hero.jpg";
 const interiorImage = "/images/interior1.jpg";
 const amenityImage = "/images/amenity1.jpg";
 const lobbyImage = "/images/lobby.jpg";
-const gardensImage = "/images/gardens.jpg";
+const gardensImage = "/images/gardens.jpeg";
 const towerImage = "/images/tower.jpg";
 const logoImage = "/images/logo.png";
 
